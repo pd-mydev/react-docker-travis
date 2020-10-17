@@ -8,7 +8,7 @@ before_install:
     - docker build -f Dockerfile.dev -t prashantcd/react-docker-travis .
 
 script:
-    - docker run prashantcd/react-docker-travis npm run test -- --coverage
+    - docker run -e CI=true prashantcd/react-docker-travis npm run test
 
 deploy:
     provider: elasticbeanstalk
